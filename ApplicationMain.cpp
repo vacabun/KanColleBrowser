@@ -1,30 +1,30 @@
 #include "ApplicationMain.h"
 
-using namespace std;
+
 
 ApplicationMain::ApplicationMain(QWidget *parent)
 	: QMainWindow(parent)
 {
-	//ui.setupUi(this);  //¸ù¾İuiÉè¼ÆÎÄ¼ş²¿Êğ½çÃæ    ÎÒ²»ÓÃÕâ¸ö
+	//ui.setupUi(this);  //æ ¹æ®uiè®¾è®¡æ–‡ä»¶éƒ¨ç½²ç•Œé¢    æˆ‘ä¸ç”¨è¿™ä¸ª
 
 	QNetworkProxyFactory::setUseSystemConfiguration(false);
 	
-	//ÉèÖÃhttp´úÀí   
+	//è®¾ç½®httpä»£ç†   
 	QNetworkProxy net;
 	net.setType(QNetworkProxy::HttpProxy);
 	net.setHostName("127.0.0.1");
 	net.setPort(8099);
 	QNetworkProxy::setApplicationProxy(net);
 
-	QString strHome = "http://games.dmm.com/zh-CHS/detail/kancolle/";  //Ö÷Ò³
-	//QString strHome = "http://www.baidu.com";  //Ö÷Ò³
+	QString strHome = "http://games.dmm.com/zh-CHS/detail/kancolle/";  //ä¸»é¡µ
+	//QString strHome = "http://www.baidu.com";  //ä¸»é¡µ
 	
 	
-	//ĞÂ½¨url±à¼­Æ÷  ÆäÊµÃ»ÓĞÓÃ
+	//æ–°å»ºurlç¼–è¾‘å™¨  å…¶å®æ²¡æœ‰ç”¨
 	pURLEdit = new QLineEdit(this);
 	pURLEdit->setText(strHome);
 
-	//°Ñ±à¼­Æ÷·Å½ø¹¤¾ßÀ¸
+	//æŠŠç¼–è¾‘å™¨æ”¾è¿›å·¥å…·æ 
 	QToolBar* pToolBar = addToolBar(tr("&URLEdit"));
 	pToolBar->addWidget(pURLEdit);
 	
@@ -34,7 +34,7 @@ ApplicationMain::ApplicationMain(QWidget *parent)
 	pInspector->addAction(pInspectorAction);
 
 
-	pMainWebView = new QWebEngineView(this);  //ÊµÀı»¯MainWebView
+	pMainWebView = new QWebEngineView(this);  //å®ä¾‹åŒ–MainWebView
 	pMainWebView->load(QUrl(strHome));
 	pMainWebView->setMinimumSize(1200, 720);
 
@@ -53,8 +53,8 @@ ApplicationMain::ApplicationMain(QWidget *parent)
 	this->statusBar();
 }
 
-//Îö¹¹º¯Êı ¶ÔÏóÏûÍöÊ±×Ô¶¯µ÷ÓÃ
-//¿ÉÓÃÀ´ÊÍ·ÅÄÚ´æ¿Õ¼ä
+//ææ„å‡½æ•° å¯¹è±¡æ¶ˆäº¡æ—¶è‡ªåŠ¨è°ƒç”¨
+//å¯ç”¨æ¥é‡Šæ”¾å†…å­˜ç©ºé—´
 ApplicationMain::~ApplicationMain()
 {
 }
@@ -64,7 +64,7 @@ void ApplicationMain::onUrlChanged()
 	pURLEdit->setText(pMainWebView->url().toString());
 }
 
-void ApplicationMain::PageLoadFinish()   //Ò³Ãæ¼ÓÔØÍê±Ï
+void ApplicationMain::PageLoadFinish()   //é¡µé¢åŠ è½½å®Œæ¯•
 {
 	Sleep(500);
 	pURLEdit->setText(pMainWebView->url().toString());
@@ -112,7 +112,7 @@ void ApplicationMain::openInspector()
 
 }
 
-void ApplicationMain::Sleep(int msec)//ÑÓÊ±²»×èÈû ºÁÃë
+void ApplicationMain::Sleep(int msec)//å»¶æ—¶ä¸é˜»å¡ æ¯«ç§’
 {
 	QTime dieTime = QTime::currentTime().addMSecs(msec);
 	while (QTime::currentTime() < dieTime)
