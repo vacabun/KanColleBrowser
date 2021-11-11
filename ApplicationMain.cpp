@@ -53,8 +53,6 @@ ApplicationMain::ApplicationMain(QWidget *parent)
 	this->statusBar();
 }
 
-//析构函数 对象消亡时自动调用
-//可用来释放内存空间
 ApplicationMain::~ApplicationMain()
 {
 }
