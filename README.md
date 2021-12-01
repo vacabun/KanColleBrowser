@@ -1,6 +1,11 @@
-# KanCollectionBrowser
-不知道叫什么名字 先叫这个了 名字正在思考中
+# KanColleBrowser
 
-使用QT5.13.1
-浏览器使用QWebEngine  不知道为什么很占内存 🤔
-使用岛风go默认代理端口  8099 
+A Kantai Collection starter written by C++ Qt.
+
+> Kantai Collection, abbreviated as KanColle, is a Japanese free-to-play web browser game developed by Kadokawa Games and published by DMM.com.
+
+Qt version : QT5.13.1
+
+Browser use QWebEngine
+
+Use ShimakazeGo defalt porxy port 8099.
