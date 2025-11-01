@@ -1,38 +1,37 @@
 #pragma once
 
-#include <QtWidgets/QMainWindow>
 #include "ui_ApplicationMain.h"
-#include <QLineEdit>
-#include <regex>
-#include <string>
+
 #include <QAction>
-#include <QMessageBox>
-#include <QSpinBox>
-#include <QSlider>
-#include <QHBoxLayout>
-#include<QDebug>
+#include <QDebug>
 #include <QFileDialog>
-#include <QtWebEngineWidgets/qwebengineview.h>
-#include <QtWebEngineWidgets/qwebenginepage.h>
+#include <QHBoxLayout>
 #include <QLineEdit>
-#include <QtWebEngine/qquickwebenginescript.h>
-#include <QtNetwork/qnetworkproxy.h>
+#include <QMainWindow>
+#include <QMessageBox>
+#include <QNetworkProxy>
+#include <QSlider>
+#include <QSpinBox>
+#include <QWebEnginePage>
+#include <QWebEngineScript>
+#include <QWebEngineView>
+
 class ApplicationMain : public QMainWindow
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	ApplicationMain(QWidget *parent = Q_NULLPTR);
-	~ApplicationMain();
+    ApplicationMain(QWidget* parent = Q_NULLPTR);
+    ~ApplicationMain();
 
 private:
-	Ui::ApplicationMainClass ui;
-	QLineEdit* pURLEdit;
-	QWebEngineView* pMainWebView;
-	QWebEnginePage* pMainWebPage;
-	void ApplicationMain::onUrlChanged();
-	void ApplicationMain::PageLoadFinish();
-	void ApplicationMain::openInspector();
-	QAction* pInspectorAction;
-	void ApplicationMain::Sleep(int msec);
+    Ui::ApplicationMainClass ui;
+    QLineEdit* pURLEdit;
+    QWebEngineView* pMainWebView;
+    QWebEnginePage* pMainWebPage;
+    void onUrlChanged();
+    void PageLoadFinish();
+    void openInspector();
+    QAction* pInspectorAction;
+    void Sleep(int msec);
 };
